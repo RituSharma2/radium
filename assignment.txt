@@ -1,0 +1,420 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Users\krishna> cd .\Desktop\
+PS C:\Users\krishna\Desktop> cd .\ritu\
+PS C:\Users\krishna\Desktop\ritu> cd .\name\
+PS C:\Users\krishna\Desktop\ritu\name> ls
+
+
+    Directory: C:\Users\krishna\Desktop\ritu\name
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        02-11-2021     14:03              0 text.txt
+
+
+PS C:\Users\krishna\Desktop\ritu\name> cat >text.txt
+
+cmdlet Get-Content at command pipeline position 1
+Supply values for the following parameters:      
+Path[0]: ritu sharma is my name
+Path[1]: ^D
+Path[2]: ^D
+Path[3]: 
+cat : Cannot find path 'C:\Users\krishna\Desktop\ritu\name\ritu sharma is my name' because it does not 
+exist.
+At line:1 char:1
++ cat >text.txt
++ ~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\krishn...arma is my name:String) [Get-Content],  
+    ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+ 
+cat : Illegal characters in path.
+At line:1 char:1
++ cat >text.txt
++ ~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (C:\Users\krishna\Desktop\ritu\name\♦:String) [Get-Conte  
+   nt], ArgumentException
+    + FullyQualifiedErrorId : ItemExistsArgumentError,Microsoft.PowerShell.Commands.GetContentCommand    
+ 
+cat : Cannot find path 'C:\Users\krishna\Desktop\ritu\name\♦' because it does not exist.
+At line:1 char:1
+PS C:\Users\krishna\Desktop\ritu\name> cd..
+PS C:\Users\krishna\Desktop\ritu> cd..
+PS C:\Users\krishna\Desktop> ls
+
+    Directory: C:\Users\krishna\Desktop
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        18-10-2021     19:40                assignment
+d-----        19-10-2021     09:48                assignment 2
+d-----        09-10-2021     13:20                css
+d-----        24-10-2021     17:26                html
+d-----        20-10-2021     18:53                js ass 1
+d-----        02-11-2021     14:01                ritu
+-a----        27-10-2021     20:09           6474 implinks.txt
+-a----        30-10-2021     21:37           1121 js.txt
+-a----        29-10-2021     20:19           2373 Microsoft Teams.lnk
+-a----        09-10-2021     15:32         421462 portfolio.png
+-a----        09-10-2021     15:54            910 style.css
+-a----        29-10-2021     21:03           1706 WIN_20211029_20_44_40_Pro.mp4 - Shortcut.lnk
+
+
+PS C:\Users\krishna\Desktop> js.txt
+js.txt : The term 'js.txt' is not recognized as the name of a cmdlet, function, script file, or 
+operable program. Check the spelling of the name, or if a path was included, verify that the path is     
+correct and try again.
+At line:1 char:1
++ js.txt
++ ~~~~~~
+    + CategoryInfo          : ObjectNotFound: (js.txt:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+
+Suggestion [3,General]: The command js.txt was not found, but does exist in the current location. Windows PowerShell does not load commands from the current location by default. If you trust this command, instead type: ".\js.txt". See "get-help about_Command_Precedence" for more details.
+PS C:\Users\krishna\Desktop> cat js.txt
+const carBrands = ["honda", "toyota", "maruti","tata"]
+const carModel = ["city", "innova", "alto", "nano"]
+
+const carObject = {}
+
+carBrands.forEach(
+
+ (brand, index) => {
+        console.log("i have the brand name given to me by for each", brand)
+        console.log("i have the model name given to me by index of forEach", carModel[index])
+        console.log("=======================")
+        carObject[brand] = carModel[index]
+ }
+
+)
+
+console.log(carObject)
+
+js ASS 28  https://codepen.io/ritusharma/pen/jOLwQdB?editors=0012
+                https://codepen.io/ritusharma/pen/jOLwQdB?editors=0011
+frse https://codepen.io/ritusharma/pen/oNeejQJ?editors=0011
+
+
+
+
+
+https://levelup.gitconnected.com/pass-by-value-vs-pass-by-reference-in-javascript-31e79afe850a
+
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce
+
+
+https://medium.com/dailyjs/i-never-understood-javascript-closures-9663703368e8
+
+https://javascript.info/closure
+PS C:\Users\krishna\Desktop> cd .\ritu\
+PS C:\Users\krishna\Desktop\ritu> cd..   
+PS C:\Users\krishna\Desktop> rmdir .\ritu\
+
+Confirm
+The item at C:\Users\krishna\Desktop\ritu\ has children and the Recurse parameter was not specified. If  
+you continue, all children will be removed with the item. Are you sure you want to continue?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): n
+PS C:\Users\krishna\Desktop> rm -r ritu
+
+
+    Directory: C:\Users\krishna\Desktop
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        02-11-2021     14:15                ritu
+
+PS C:\Users\krishna\Desktop> cd .\ritu\
+PS C:\Users\krishna\Desktop\ritu> touch name.txt
+touch : The term 'touch' is not recognized as the name of a cmdlet, function, script file, or operable   
+program. Check the spelling of the name, or if a path was included, verify that the path is correct and  
+try again.
+At line:1 char:1
++ touch name.txt
++ ~~~~~
+    + CategoryInfo          : ObjectNotFound: (touch:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+PS C:\Users\krishna\Desktop\ritu> touch name.txt
+touch : The term 'touch' is not recognized as the name of a cmdlet, function, script file, or operable   
+program. Check the spelling of the name, or if a path was included, verify that the path is correct and  
+try again.
+At line:1 char:1
++ touch name.txt
++ ~~~~~
+PS C:\Users\krishna\Desktop\ritu> cd..
+PS C:\Users\krishna\Desktop> ls
+
+    Directory: C:\Users\krishna\Desktop
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        18-10-2021     19:40                assignment
+d-----        19-10-2021     09:48                assignment 2        
+d-----        09-10-2021     13:20                css
+d-----        24-10-2021     17:26                html
+d-----        20-10-2021     18:53                js ass 1
+-a----        21-10-2021     19:21            741 index.html
+-a----        30-10-2021     21:37           1121 js.txt
+-a----        29-10-2021     20:19           2373 Microsoft Teams.lnk 
+-a----        09-10-2021     15:32         421462 portfolio.png       
+-a----        09-10-2021     15:54            910 style.css
+-a----        29-10-2021     21:03           1706 WIN_20211029_20_44_ 
+                                                  40_Pro.mp4 -        
+                                                  Shortcut.lnk        
+
+
+PS C:\Users\krishna\Desktop> mkdir assignment
+
+    Directory: C:\Users\krishna\Desktop
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        02-11-2021     14:34                assignment
+
+
+PS C:\Users\krishna\Desktop> cd .\assignment\
+
+
+    Directory: C:\Users\krishna\Desktop\assignment
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        02-11-2021     14:35                source
+
+
+PS C:\Users\krishna\Desktop\assignment> mkdir destination
+    Directory: C:\Users\krishna\Desktop\assignment
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        02-11-2021     14:35                destination
+
+
+PS C:\Users\krishna\Desktop\assignment> ls
+
+    Directory: C:\Users\krishna\Desktop\assignment
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+
+
+PS C:\Users\krishna\Desktop\assignment> cd .\source\
+PS C:\Users\krishna\Desktop\assignment\source> ls
+
+
+    Directory: C:\Users\krishna\Desktop\assignment\source
+
+
+Mode                 LastWriteTime         Length Name
+
+
+PS C:\Users\krishna\Desktop\assignment\source> cat text.txt
+hi ! my name is ritu sharma i did my btech in electronics and communcation engineering from baba banda singh bahadur engineering college in 
+2019.
+currently i am backend developer traniee at functionUp bootcamp and i 
+am pretty sure i will do my best and get success in this field .      
+PS C:\Users\krishna\Desktop\assignment\source> cp /destination/text.txt.
+cp : Cannot find path 'C:\destination\text.txt.' because it does not  
++ cp /destination/text.txt.
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\destination\text.t  
+   xt.:String) [Copy-Item], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Comm  
+   ands.CopyItemCommand
+ 
+PS C:\Users\krishna\Desktop\assignment\source> cp/text.txt/destination 
+cp/text.txt/destination : The term 'cp/text.txt/destination' is not   
+included, verify that the path is correct and try again.
+At line:1 char:1
++ cp/text.txt/destination
++ ~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (cp/text.txt/destinati  
+   on:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS C:\Users\krishna\Desktop\assignment\source> cp /assignment/destination/text.txt
+it does not exist.
+At line:1 char:1
++ cp /assignment/destination/text.txt
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\assignment\destina  
+   tion\text.txt:String) [Copy-Item], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Comm  
+   ands.CopyItemCommand
+ 
+PS C:\Users\krishna\Desktop\assignment\source> cp /text.txt/destinatioexist.
+At line:1 char:1
++ cp /text.txt/destination .
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\text.txt\destinati  
+   on:String) [Copy-Item], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Comm  
+   ands.CopyItemCommand
+ 
+PS C:\Users\krishna\Desktop\assignment\source> ls
+
+    Directory: C:\Users\krishna\Desktop\assignment\source
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        02-11-2021     14:38            281 text.txt
+
+
+PS C:\Users\krishna\Desktop\assignment\source> cp /text.txt/assignment/destination/
+At line:1 char:1
++ cp /text.txt/assignment/destination/
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\text.txt\assignmen  
+   t\destination\:String) [Copy-Item], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Comm  
+   ands.CopyItemCommand
+ 
+PS C:\Users\krishna\Desktop\assignment\source> cp/text.txt/pwd        
+cp/text.txt/pwd : The term 'cp/text.txt/pwd' is not recognized as     
+the name of a cmdlet, function, script file, or operable program.     
+Check the spelling of the name, or if a path was included, verify     
++ cp/text.txt/pwd
++ ~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (cp/text.txt/pwd:Strin  
+   g) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS C:\Users\krishna\Desktop\assignment\source> cd..
+PS C:\Users\krishna\Desktop\assignment> cpsource/text.txt/destination 
+cpsource/text.txt/destination : The term 
+'cpsource/text.txt/destination' is not recognized as the name of a    
+cmdlet, function, script file, or operable program. Check the         
+path is correct and try again.
+At line:1 char:1
++ cpsource/text.txt/destination
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (cpsource/text.txt/des  
+   tination:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS C:\Users\krishna\Desktop\assignment> cp source/text.txt/destination
+cp : Cannot find path 
+'C:\Users\krishna\Desktop\assignment\source\text.txt\destination'     
+At line:1 char:1
++ cp source/text.txt/destination
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\krishn...txt  
+   \destination:String) [Copy-Item], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Comm  
+   ands.CopyItemCommand
+ 
+PS C:\Users\krishna\Desktop\assignment> cpsource/text.txtdestination  
+cpsource/text.txtdestination : The term 
+'cpsource/text.txtdestination' is not recognized as the name of a     
+At line:1 char:1
++ cpsource/text.txtdestination
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (cpsource/text.txtdest  
+   ination:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS C:\Users\krishna\Desktop\assignment> cp source/text.txtdestination 
+cp : Cannot find path 
+'C:\Users\krishna\Desktop\assignment\source\text.txtdestination'      
+because it does not exist.
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\krishn....tx  
+   tdestination:String) [Copy-Item], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Comm  
+   ands.CopyItemCommand
+ 
+PS C:\Users\krishna\Desktop\assignment> cp source/text.txt destination
+PS C:\Users\krishna\Desktop\assignment> ls
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        02-11-2021     15:10                destination
+d-----        02-11-2021     14:36                source
+
+
+PS C:\Users\krishna\Desktop\assignment> cd .\source\
+PS C:\Users\krishna\Desktop\assignment\source> ls
+
+
+PS C:\Users\krishna\Desktop\assignment\source> cd..
+PS C:\Users\krishna\Desktop\assignment> cd .\destination\
+PS C:\Users\krishna\Desktop\assignment\destination> ls
+
+
+    Directory: C:\Users\krishna\Desktop\assignment\destination        
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+
+PS C:\Users\krishna\Desktop\assignment\destination> cd..
+PS C:\Users\krishna\Desktop\assignment> cd .\destination\
+PS C:\Users\krishna\Desktop\assignment\destination> rm -r text.txt    
+PS C:\Users\krishna\Desktop\assignment\destination> ls
+PS C:\Users\krishna\Desktop\assignment\destination> cd..
+PS C:\Users\krishna\Desktop\assignment> mv source/text.txt destination
+PS C:\Users\krishna\Desktop\assignment> ls
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----        02-11-2021     15:15                destination
+d-----        02-11-2021     15:15                source
+
+
+PS C:\Users\krishna\Desktop\assignment> cd .\source\
+PS C:\Users\krishna\Desktop\assignment\source> cd de
+cd : Cannot find path 
+'C:\Users\krishna\Desktop\assignment\source\de' because it does not   
++ cd de
++ ~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\Users\krishn...nme  
+   nt\source\de:String) [Set-Location], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Comm  
+   ands.SetLocationCommand
+ 
+PS C:\Users\krishna\Desktop\assignment\source> cd..
+PS C:\Users\krishna\Desktop\assignment> cd .\destination\
+PS C:\Users\krishna\Desktop\assignment\destination> ls
+
+
+    Directory: C:\Users\krishna\Desktop\assignment\destination        
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a----        02-11-2021     14:38            281 text.txt
+
+
+PS C:\Users\krishna\Desktop\assignment\destination> grep -i'functionUp' text.file
+At line:1 char:1
++ ~~~~
+    + CategoryInfo          : ObjectNotFound: (grep:String) [], Comm  
+   andNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS C:\Users\krishna\Desktop\assignment\destination> ls
+
+
+    Directory: C:\Users\krishna\Desktop\assignment\destination        
+
+
+----                 -------------         ------ ----
+-a----        02-11-2021     15:18            303 text.txt
+
