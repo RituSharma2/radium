@@ -51,13 +51,13 @@ router.get('/films/:filmId', function(req, res) {
         'name': 'Peter Rabbit'
        }]
        let id= req.params.filmId
-       let movieAt=movies[id-1]
-       if(id<=movies.length){
-           res.send(movieAt)
+       for(let i=0;i<movies.length;i++){
+       if(id==movies[i].id){
+           res.send(movies[i])
        }else{
            res.send('invaild Id')
        }
-          
+       }   
 })
 
 module.exports = router;
