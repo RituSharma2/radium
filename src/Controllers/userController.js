@@ -61,7 +61,7 @@ const updateEmail = async function (req, res) {
             let userDetails = await userModel.findOneAndUpdate({ _id: req.params.userId }, { email: req.body.email }, { new: true })
             res.send({ msg: userDetails })
         } else {
-            res.send({ status: false })
+            res.send({ status: false , msg:"no user"})
         }
     }
 }
