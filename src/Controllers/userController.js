@@ -1,13 +1,16 @@
-//const { JsonWebTokenError } = require('jsonwebtoken')
+
 const userModel = require('../Models/userModel')
 const jwt = require('jsonwebtoken')
+
+
+//POST API TO CREATE USER
 const createuser = async function (req, res) {
     var userDetails = req.body
     let savedData = await userModel.create(userDetails)
     res.send({ data: savedData })
 
 }
-
+// POST API TO LOGIN USER AND GENERATE TOKEN
 const loginUser = async function (req, res) {
     let data = req.body
     if (data.userName && data.password) {
@@ -24,12 +27,15 @@ const loginUser = async function (req, res) {
         res.send({ error: "request body must contain username and password" })
     }
 }
+
+
+// GET API TO GET USER AND DECODE TOKEN
 const getUser = async function (req, res) {
     let token = req.headers['x-auth-token']
     if (!token) {
         return res.send({ status: false, msg: "no authication token" })
     } else {
-        //let payload={_id:user._id}
+
         let decodeToken = jwt.verify(token, 'radium')
         if (decodeToken) {
             let userDetails = await userModel.findOne({ _id: req.params.userId, isDeleted: false })
@@ -42,6 +48,8 @@ const getUser = async function (req, res) {
     }
 };
 
+// PUT API FOR UPDATE EMAIL
+
 const updateEmail = async function (req, res) {
     let token = req.headers['x-auth-token']
     if (!token) {
@@ -49,7 +57,7 @@ const updateEmail = async function (req, res) {
     } else {
         let decodeToken = jwt.verify(token, 'radium')
         if (decodeToken) {
-            //let user= await userModel.findOne({})
+
             let userDetails = await userModel.findOneAndUpdate({ _id: req.params.userId }, { email: req.body.email }, { new: true })
             res.send({ msg: userDetails })
         } else {
