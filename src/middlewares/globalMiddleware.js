@@ -1,21 +1,22 @@
 
-
-
-
-let checkHeader = function(req, res, next){
-    let headerValue= req.headers['isfreeapp']
-   // req.isFreeApp=
-    if(!headerValue){
-        res.send({error: 'header is not present'})
-        
-     }else{
-        console.log('hello this is middelware')
-        next()
-        
-       
-       
+const checkHeader= function(req, res, next){
+    let appTypeHeader = req.headers['isfreeapp']
+    let isAppFree
+    if(!appTypeHeader) {
+        return res.send({message: 'Mandatory header missing'})
     }
+
+    if(appTypeHeader === 'false') {
+        isAppFree = false
+    } else {
+        isAppFree = true
+    }
+    req.isFreeAppUser = isAppFree
+
+    next()
 }
+
+
 
 //module.exports.captureInfo = captureInfo
 module.exports.checkHeader=checkHeader
