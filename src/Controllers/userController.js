@@ -31,43 +31,43 @@ const loginUser = async function (req, res) {
 
 // GET API TO GET USER AND DECODE TOKEN
 const getUser = async function (req, res) {
-    let token = req.headers['x-auth-token']
-    if (!token) {
-        return res.send({ status: false, msg: "no authication token" })
-    } else {
+    //let token = req.headers['x-auth-token']
+    //if (!token) {
+    //   return res.send({ status: false, msg: "no authication token" })
+    // } else {
 
-        let decodeToken = jwt.verify(token, 'radium')
-        if (decodeToken._id== req.params.userId) {
-            let userDetails = await userModel.findOne({ _id: req.params.userId, isDeleted: false })
-            if (userDetails) {
-                res.send({ status: true, data: userDetails })
-            } else {res.send({ status: false, msg: "no user available" })}
-        } else {
-            res.send({ status: false, msg: "invalied token" })
-        }
+    //let decodeToken = jwt.verify(token, 'radium')
+    if (req.decodeToken) {
+        let userDetails = await userModel.findOne({ _id: req.params.userId, isDeleted: false })
+        if (userDetails) {
+            res.send({ status: true, data: userDetails })
+        } else { res.send({ status: false, msg: "no user available" }) }
+    } else {
+        res.send({ status: false, msg: "invalied token" })
     }
+    // }
 };
 
 // PUT API FOR UPDATE EMAIL
 
 const updateEmail = async function (req, res) {
-    let token = req.headers['x-auth-token']
-    if (!token) {
-        return res.send({ status: false , msg:"no authentication token"})
-    } else {
-        let decodeToken = jwt.verify(token, 'radium')
-        if (decodeToken) {
+    //let token = req.headers['x-auth-token']
+    //if (!token) {
+    // return res.send({ status: false, msg: "no authentication token" })
+    //} else {
+    //let decodeToken = jwt.verify(token, 'radium')
+    if (req.decodeToken) {
 
-            let userDetails = await userModel.findOneAndUpdate({ _id: req.params.userId }, { email: req.body.email }, { new: true })
-           if(userDetails){
+        let userDetails = await userModel.findOneAndUpdate({ _id: req.params.userId }, { email: req.body.email }, { new: true })
+        if (userDetails) {
             res.send({ msg: userDetails })
-           } else {
-             res.send({ status: false ,msg:"invalid user"})
-            }
-        }else{
-            res.send({status:false , msg:"invalid token"})
+        } else {
+            res.send({ status: false, msg: "invalid user" })
         }
+    } else {
+        res.send({ status: false, msg: "invalid token" })
     }
+    // }
 }
 
 
