@@ -24,7 +24,7 @@ router.delete('/blogs/:blogId',mid1.mid2, blogController.deleting)
 
 router.delete('/blogs' ,mid1.mid1, blogController.specificdeleting)
 
-router.post('/login',blogController.loginAuthor)
+router.post('/login',authorController.loginAuthor)
 
 
 module.exports = router;

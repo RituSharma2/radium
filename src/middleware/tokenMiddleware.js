@@ -1,7 +1,7 @@
 let blogModel = require('../model/blogModel');
 let authorModel = require('../model/authorModel');
 const jwt = require('jsonwebtoken')
-//const mid1 = require('../middleware/tokenMiddleware')
+
 
 
 const mid1 = function (req, res, next) {

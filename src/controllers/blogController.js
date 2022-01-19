@@ -33,7 +33,7 @@ let Blogs = async function (req, res) {
 const getBlogs = async function (req, res) {
 
     try {
-
+       
         let array = []
         let authorId = req.query.authorId
         let tags = req.query.tags
@@ -42,13 +42,12 @@ const getBlogs = async function (req, res) {
         let blog = await blogModel.find({ $or: [{ authorId: authorId }, { category: category }, { tags: tags }, { subcategory: subcategory }] })
 
         if (blog.length > 0) {
-
+        
             for (let element of blog) {
 
                 if (element.isDeleted === false && element.isPublished === true) {
-
+       
                     array.push(element)
-
                 }
 
             } res.status(200).send({ status: true, data: array })
@@ -57,7 +56,8 @@ const getBlogs = async function (req, res) {
                 status: false,
                 msg: "no such blog found"
             })
-        }
+        
+    }
 
     }
     catch (err) {
@@ -66,6 +66,10 @@ const getBlogs = async function (req, res) {
     }
 
 }
+
+
+
+
 //================================================================================================================================
 const updating = async function (req, res) {
     const Id = req.params.blogId
@@ -157,26 +161,7 @@ const specificdeleting = async function (req, res) {
     }
 }
 //=========================================================================================================================================================================
-const loginAuthor = async function (req, res) {
-    try {
-        let data = req.body
-        if (data.email && data.password) {
-            let author = await authorModel.findOne({ email: data.email, password: data.password })
-            if (author) {
-                let payload = { _id: author._id }
-                let token = jwt.sign(payload, 'backend')
-                res.status(200).send({ status: true, data: author, token: token })
-            } else {
-                res.status(400).send({ status: false, msg: "invalid email and password" })
-            }
-        } else {
-            res.status(400).send({ status: false, msg: "request body must contain email and password" })
-        }
 
-    } catch (err) {
-        res.status(400).send({ status: "something went wrong", error: err })
-    }
-}
 
 //==================================================================================================================================
 
@@ -190,5 +175,5 @@ module.exports.Blogs = Blogs;
 module.exports.deleting = deleting;
 module.exports.updating = updating;
 module.exports.specificdeleting = specificdeleting
-module.exports.loginAuthor = loginAuthor
+
 
